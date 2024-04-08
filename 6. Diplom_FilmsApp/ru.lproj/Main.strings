@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "Описание"; ObjectID = "2RJ-Ds-Eo9"; */
+"2RJ-Ds-Eo9.text" = "Описание";
+
+/* Class = "UILabel"; text = "Продолжительность"; ObjectID = "6RZ-nf-L2d"; */
+"6RZ-nf-L2d.text" = "Продолжительность";
+
+/* Class = "UILabel"; text = "Рейтинг"; ObjectID = "7Ch-0C-GfZ"; */
+"7Ch-0C-GfZ.text" = "Рейтинг";
+
+/* Class = "UILabel"; text = "Название фильма"; ObjectID = "JtO-zt-Qw7"; */
+"JtO-zt-Qw7.text" = "Название фильма";
+
+/* Class = "UILabel"; text = "Original film name"; ObjectID = "OQB-Ii-l5l"; */
+"OQB-Ii-l5l.text" = "Original film name";
+
+/* Class = "UILabel"; text = "Рейтинг"; ObjectID = "Ofy-Wg-8VL"; */
+"Ofy-Wg-8VL.text" = "Рейтинг";
+
+/* Class = "UILabel"; text = "Кадры, съёмки"; ObjectID = "RnR-rb-NAQ"; */
+"RnR-rb-NAQ.text" = "Кадры, съёмки";
+
+/* Class = "UILabel"; text = "Жанры"; ObjectID = "aqr-mH-hLh"; */
+"aqr-mH-hLh.text" = "Жанры";
+
+/* Class = "UILabel"; text = "Страна"; ObjectID = "dO2-he-Goz"; */
+"dO2-he-Goz.text" = "Страна";
+
+/* Class = "UINavigationItem"; title = "FilmsApp"; ObjectID = "fAj-y5-8XH"; */
+"fAj-y5-8XH.title" = "FilmsApp";
+
+/* Class = "UILabel"; text = "Год"; ObjectID = "ggs-W1-N3x"; */
+"ggs-W1-N3x.text" = "Год";
+
+/* Class = "UILabel"; text = "Название фильма"; ObjectID = "kZB-vf-aVU"; */
+"kZB-vf-aVU.text" = "Название фильма";
+
+/* Class = "UILabel"; text = "Год выпуска"; ObjectID = "pOh-nc-xLo"; */
+"pOh-nc-xLo.text" = "Год выпуска";
+
+/* Class = "UITextView"; text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda."; ObjectID = "rq5-at-Gex"; */
+"rq5-at-Gex.text" = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";

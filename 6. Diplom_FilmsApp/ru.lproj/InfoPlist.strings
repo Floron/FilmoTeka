@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  6. Diplom_FilmsApp
+
+  Created by Floron on 31.03.2024.
+  
+*/
+
+"CFBundleDisplayName"  = "ФильмоТека";
+"CFBundleName" = "ФильмоТека";

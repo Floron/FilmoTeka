@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2E83F5D22BBB49D10023D9C3 /* RoundingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83F5D12BBB49D10023D9C3 /* RoundingTransition.swift */; };
+		2E83F5D42BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83F5D32BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift */; };
+		2E8C41442BBAF89000AEEB02 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */; };
+		2ECDFA9F2BB15DAC001DA8E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFA9E2BB15DAC001DA8E3 /* AppDelegate.swift */; };
+		2ECDFAA12BB15DAC001DA8E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFAA02BB15DAC001DA8E3 /* SceneDelegate.swift */; };
+		2ECDFAA32BB15DAC001DA8E3 /* 1_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFAA22BB15DAC001DA8E3 /* 1_MainViewController.swift */; };
+		2ECDFAA62BB15DAC001DA8E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ECDFAA42BB15DAC001DA8E3 /* Main.storyboard */; };
+		2ECDFAA82BB15DAE001DA8E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ECDFAA72BB15DAE001DA8E3 /* Assets.xcassets */; };
+		2ECDFAAB2BB15DAE001DA8E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ECDFAA92BB15DAE001DA8E3 /* LaunchScreen.storyboard */; };
+		2ECDFAB32BB16055001DA8E3 /* 2_DeteilFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFAB22BB16054001DA8E3 /* 2_DeteilFilmViewController.swift */; };
+		2ECDFAB52BB160A2001DA8E3 /* 3_FilmPicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFAB42BB160A2001DA8E3 /* 3_FilmPicsViewController.swift */; };
+		2ECDFAB72BB160BE001DA8E3 /* 4_FullPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFAB62BB160BE001DA8E3 /* 4_FullPicViewController.swift */; };
+		2ECDFAB92BB160DB001DA8E3 /* 5_FavoriteFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFAB82BB160DB001DA8E3 /* 5_FavoriteFilmsViewController.swift */; };
+		2ECDFABB2BB17F9F001DA8E3 /* KinopoiskFilmsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFABA2BB17F9F001DA8E3 /* KinopoiskFilmsModels.swift */; };
+		2ECDFABD2BB1A267001DA8E3 /* 01_FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFABC2BB1A267001DA8E3 /* 01_FilmCollectionViewCell.swift */; };
+		2ECDFABF2BB1A68A001DA8E3 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFABE2BB1A68A001DA8E3 /* TestModel.swift */; };
+		2ECDFAC12BB1BA45001DA8E3 /* FilmCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ECDFAC02BB1BA45001DA8E3 /* FilmCollectionViewCell.xib */; };
+		2ECDFAC32BB1C743001DA8E3 /* 6_PosterFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFAC22BB1C743001DA8E3 /* 6_PosterFullViewController.swift */; };
+		2EEC35D92BB98AE60016D729 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2EEC35DB2BB98AE60016D729 /* InfoPlist.strings */; };
+		8DDD8B452BD096E6EBAEDCF9 /* Pods_6__Diplom_FilmsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E31D87ED1FAFB84743CEE2 /* Pods_6__Diplom_FilmsApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2E83F5D12BBB49D10023D9C3 /* RoundingTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundingTransition.swift; sourceTree = "<group>"; };
+		2E83F5D32BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 02_FilmPicsCollectionViewCell.swift; sourceTree = "<group>"; };
+		2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		2ECDFA9B2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6. Diplom_FilmsApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ECDFA9E2BB15DAC001DA8E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2ECDFAA02BB15DAC001DA8E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2ECDFAA22BB15DAC001DA8E3 /* 1_MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1_MainViewController.swift; sourceTree = "<group>"; };
+		2ECDFAA52BB15DAC001DA8E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2ECDFAA72BB15DAE001DA8E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2ECDFAAA2BB15DAE001DA8E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2ECDFAAC2BB15DAE001DA8E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2ECDFAB22BB16054001DA8E3 /* 2_DeteilFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 2_DeteilFilmViewController.swift; sourceTree = "<group>"; };
+		2ECDFAB42BB160A2001DA8E3 /* 3_FilmPicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 3_FilmPicsViewController.swift; sourceTree = "<group>"; };
+		2ECDFAB62BB160BE001DA8E3 /* 4_FullPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 4_FullPicViewController.swift; sourceTree = "<group>"; };
+		2ECDFAB82BB160DB001DA8E3 /* 5_FavoriteFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 5_FavoriteFilmsViewController.swift; sourceTree = "<group>"; };
+		2ECDFABA2BB17F9F001DA8E3 /* KinopoiskFilmsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinopoiskFilmsModels.swift; sourceTree = "<group>"; };
+		2ECDFABC2BB1A267001DA8E3 /* 01_FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 01_FilmCollectionViewCell.swift; sourceTree = "<group>"; };
+		2ECDFABE2BB1A68A001DA8E3 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		2ECDFAC02BB1BA45001DA8E3 /* FilmCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCollectionViewCell.xib; sourceTree = "<group>"; };
+		2ECDFAC22BB1C743001DA8E3 /* 6_PosterFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 6_PosterFullViewController.swift; sourceTree = "<group>"; };
+		2EEC35DA2BB98AE60016D729 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2EEC35DD2BB98C7A0016D729 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3E442A853183A043136C28DA /* Pods-6. Diplom_FilmsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-6. Diplom_FilmsApp.debug.xcconfig"; path = "Target Support Files/Pods-6. Diplom_FilmsApp/Pods-6. Diplom_FilmsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		AB7172AB5220DC064F359ED4 /* Pods-6. Diplom_FilmsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-6. Diplom_FilmsApp.release.xcconfig"; path = "Target Support Files/Pods-6. Diplom_FilmsApp/Pods-6. Diplom_FilmsApp.release.xcconfig"; sourceTree = "<group>"; };
+		D2E31D87ED1FAFB84743CEE2 /* Pods_6__Diplom_FilmsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_6__Diplom_FilmsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2ECDFA982BB15DAC001DA8E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DDD8B452BD096E6EBAEDCF9 /* Pods_6__Diplom_FilmsApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2ECDFA922BB15DAC001DA8E3 = {
+			isa = PBXGroup;
+			children = (
+				2ECDFA9D2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp */,
+				2ECDFA9C2BB15DAC001DA8E3 /* Products */,
+				D7E6C58A43F838CEF1165394 /* Pods */,
+				5891797FF9273159DB4E86CB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2ECDFA9C2BB15DAC001DA8E3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2ECDFA9B2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2ECDFA9D2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC35DE2BB98CEA0016D729 /* Models */,
+				2EEC35DF2BB98CF30016D729 /* Views */,
+				2EEC35E02BB98D020016D729 /* Controllers */,
+				2ECDFA9E2BB15DAC001DA8E3 /* AppDelegate.swift */,
+				2ECDFAA02BB15DAC001DA8E3 /* SceneDelegate.swift */,
+				2EEC35DB2BB98AE60016D729 /* InfoPlist.strings */,
+				2ECDFAA72BB15DAE001DA8E3 /* Assets.xcassets */,
+				2ECDFAAC2BB15DAE001DA8E3 /* Info.plist */,
+			);
+			path = "6. Diplom_FilmsApp";
+			sourceTree = "<group>";
+		};
+		2EEC35DE2BB98CEA0016D729 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2ECDFABA2BB17F9F001DA8E3 /* KinopoiskFilmsModels.swift */,
+				2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */,
+				2ECDFABE2BB1A68A001DA8E3 /* TestModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2EEC35DF2BB98CF30016D729 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2ECDFAA42BB15DAC001DA8E3 /* Main.storyboard */,
+				2ECDFAC02BB1BA45001DA8E3 /* FilmCollectionViewCell.xib */,
+				2ECDFAA92BB15DAE001DA8E3 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2EEC35E02BB98D020016D729 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2ECDFABC2BB1A267001DA8E3 /* 01_FilmCollectionViewCell.swift */,
+				2E83F5D32BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift */,
+				2ECDFAA22BB15DAC001DA8E3 /* 1_MainViewController.swift */,
+				2ECDFAB22BB16054001DA8E3 /* 2_DeteilFilmViewController.swift */,
+				2ECDFAB42BB160A2001DA8E3 /* 3_FilmPicsViewController.swift */,
+				2ECDFAB62BB160BE001DA8E3 /* 4_FullPicViewController.swift */,
+				2ECDFAB82BB160DB001DA8E3 /* 5_FavoriteFilmsViewController.swift */,
+				2ECDFAC22BB1C743001DA8E3 /* 6_PosterFullViewController.swift */,
+				2E83F5D12BBB49D10023D9C3 /* RoundingTransition.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5891797FF9273159DB4E86CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2E31D87ED1FAFB84743CEE2 /* Pods_6__Diplom_FilmsApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D7E6C58A43F838CEF1165394 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3E442A853183A043136C28DA /* Pods-6. Diplom_FilmsApp.debug.xcconfig */,
+				AB7172AB5220DC064F359ED4 /* Pods-6. Diplom_FilmsApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2ECDFA9A2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ECDFAAF2BB15DAE001DA8E3 /* Build configuration list for PBXNativeTarget "6. Diplom_FilmsApp" */;
+			buildPhases = (
+				DA31E0EC67B06080D8EA2C79 /* [CP] Check Pods Manifest.lock */,
+				2ECDFA972BB15DAC001DA8E3 /* Sources */,
+				2ECDFA982BB15DAC001DA8E3 /* Frameworks */,
+				2ECDFA992BB15DAC001DA8E3 /* Resources */,
+				0FF9DCAC29712C6993B74C93 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "6. Diplom_FilmsApp";
+			productName = "6. Diplom_FilmsApp";
+			productReference = 2ECDFA9B2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2ECDFA932BB15DAC001DA8E3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					2ECDFA9A2BB15DAC001DA8E3 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 2ECDFA962BB15DAC001DA8E3 /* Build configuration list for PBXProject "6. Diplom_FilmsApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+			);
+			mainGroup = 2ECDFA922BB15DAC001DA8E3;
+			productRefGroup = 2ECDFA9C2BB15DAC001DA8E3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2ECDFA9A2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2ECDFA992BB15DAC001DA8E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EEC35D92BB98AE60016D729 /* InfoPlist.strings in Resources */,
+				2ECDFAAB2BB15DAE001DA8E3 /* LaunchScreen.storyboard in Resources */,
+				2ECDFAA82BB15DAE001DA8E3 /* Assets.xcassets in Resources */,
+				2ECDFAC12BB1BA45001DA8E3 /* FilmCollectionViewCell.xib in Resources */,
+				2ECDFAA62BB15DAC001DA8E3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0FF9DCAC29712C6993B74C93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-6. Diplom_FilmsApp/Pods-6. Diplom_FilmsApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-6. Diplom_FilmsApp/Pods-6. Diplom_FilmsApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-6. Diplom_FilmsApp/Pods-6. Diplom_FilmsApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA31E0EC67B06080D8EA2C79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-6. Diplom_FilmsApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2ECDFA972BB15DAC001DA8E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8C41442BBAF89000AEEB02 /* NetworkModel.swift in Sources */,
+				2ECDFAB92BB160DB001DA8E3 /* 5_FavoriteFilmsViewController.swift in Sources */,
+				2ECDFAB72BB160BE001DA8E3 /* 4_FullPicViewController.swift in Sources */,
+				2ECDFAB32BB16055001DA8E3 /* 2_DeteilFilmViewController.swift in Sources */,
+				2ECDFAA32BB15DAC001DA8E3 /* 1_MainViewController.swift in Sources */,
+				2ECDFA9F2BB15DAC001DA8E3 /* AppDelegate.swift in Sources */,
+				2ECDFAB52BB160A2001DA8E3 /* 3_FilmPicsViewController.swift in Sources */,
+				2ECDFABD2BB1A267001DA8E3 /* 01_FilmCollectionViewCell.swift in Sources */,
+				2ECDFABF2BB1A68A001DA8E3 /* TestModel.swift in Sources */,
+				2E83F5D22BBB49D10023D9C3 /* RoundingTransition.swift in Sources */,
+				2E83F5D42BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift in Sources */,
+				2ECDFAC32BB1C743001DA8E3 /* 6_PosterFullViewController.swift in Sources */,
+				2ECDFAA12BB15DAC001DA8E3 /* SceneDelegate.swift in Sources */,
+				2ECDFABB2BB17F9F001DA8E3 /* KinopoiskFilmsModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2ECDFAA42BB15DAC001DA8E3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2ECDFAA52BB15DAC001DA8E3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2ECDFAA92BB15DAE001DA8E3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2ECDFAAA2BB15DAE001DA8E3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2EEC35DB2BB98AE60016D729 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EEC35DA2BB98AE60016D729 /* en */,
+				2EEC35DD2BB98C7A0016D729 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2ECDFAAD2BB15DAE001DA8E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2ECDFAAE2BB15DAE001DA8E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2ECDFAB02BB15DAE001DA8E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E442A853183A043136C28DA /* Pods-6. Diplom_FilmsApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A93E9U8WG3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "6. Diplom_FilmsApp/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "floron.---Diplom-FilmsApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2ECDFAB12BB15DAE001DA8E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB7172AB5220DC064F359ED4 /* Pods-6. Diplom_FilmsApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A93E9U8WG3;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "6. Diplom_FilmsApp/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "floron.---Diplom-FilmsApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2ECDFA962BB15DAC001DA8E3 /* Build configuration list for PBXProject "6. Diplom_FilmsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ECDFAAD2BB15DAE001DA8E3 /* Debug */,
+				2ECDFAAE2BB15DAE001DA8E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ECDFAAF2BB15DAE001DA8E3 /* Build configuration list for PBXNativeTarget "6. Diplom_FilmsApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2ECDFAB02BB15DAE001DA8E3 /* Debug */,
+				2ECDFAB12BB15DAE001DA8E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2ECDFA932BB15DAC001DA8E3 /* Project object */;
+}
