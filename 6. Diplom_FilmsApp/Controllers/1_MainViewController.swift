@@ -6,87 +6,105 @@
 //
 
 import UIKit
-import Kingfisher
 
-class MainViewController: UIViewController, UIGestureRecognizerDelegate {
+class MainViewController: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
-    let network = NetworkModel()
-    var collectionViewTopConstraint: NSLayoutConstraint?
+    @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var showLikedFilmsButton: UIButton!
     
-    //var testArray: [TestModel] = []
+    var filmModel = FilmModel()
+    var searchController = UISearchController()
     
-//    lazy var searchBar : UISearchBar = {
-//        let s = UISearchBar()
-//            s.placeholder = "Search Timeline"
-//            s.delegate = self
-//            s.tintColor = .white
-//            s.barTintColor = .blue
-//            s.barStyle = .default
-//            s.sizeToFit()
-//        return s
-//    }()
-    
-    
+    var isShowLikedFilmsButtonPressed = false
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchBar.delegate = self
         mainCollectionView.dataSource = self
         mainCollectionView.delegate = self
-
-        searchBar.isHidden = true
-        //mainCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        collectionViewTopConstraint = self.mainCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
-        collectionViewTopConstraint?.isActive = true
+        
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Введите название фильма/сериала"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = true
+        
+        setupSortButton()
         
         
-        mainCollectionView.isUserInteractionEnabled = true
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipedDownToShowUISearchBar))
-        swipeDown.delegate = self
-        swipeDown.direction = UISwipeGestureRecognizer.Direction.down
-        mainCollectionView.addGestureRecognizer(swipeDown)
-        
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipedDownToShowUISearchBar))
-        swipeUp.delegate = self
-        swipeUp.direction = UISwipeGestureRecognizer.Direction.up
-        mainCollectionView.addGestureRecognizer(swipeUp)
-                
-       // testArray = giveMeAnArray()
-        
-        //let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
-        //mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "FilmCellXib")
-        //mainCollectionView.reloadData()
-        
-        network.loadData {
+        filmModel.network.downloader(apiToUse: .defaultUrl) { (model: KinopoiskFilmsArrayModel) in
+            for film in model.items {
+                let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.kinopoiskId)
+                self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.kinopoiskId,
+                                                              nameRu: film.nameRu,
+                                                              ratingKinopoisk: film.ratingKinopoisk,
+                                                              year: film.year,
+                                                              posterUrlPreview: film.posterUrlPreview,
+                                                              isLiked: isLikedFilm))
+            }
             print("Data downloaded")
-//            print(self.filmsArray.count)
             self.mainCollectionView.reloadData()
         }
     }
 
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    func setupSortButton() {
+        let menuClosure = {(action: UIAction) in
+            if let discoverabilityTitle = action.discoverabilityTitle {
+                self.update(sortMethod: discoverabilityTitle)
+            }
+        }
+        
+        let subMenu = UIMenu(options: .displayInline, preferredElementSize: .medium, children: [
+            UIAction(title: "Год", image: UIImage(systemName: "arrow.down"), discoverabilityTitle: "yearDown", handler: menuClosure),
+            UIAction(title: "Год", image: UIImage(systemName: "arrow.up"), discoverabilityTitle: "yearUp", handler: menuClosure)
+        ])
+        sortButton.menu = UIMenu(title: "Сортировка", preferredElementSize: .medium, children: [
+            UIAction(title: "Рейтинг", image: UIImage(systemName: "arrow.down"),discoverabilityTitle: "ratingDown", handler: menuClosure),
+            UIAction(title: "Рейтинг", image: UIImage(systemName: "arrow.up"), discoverabilityTitle: "ratingUp", handler: menuClosure),
+            subMenu
+        ])
+        sortButton.showsMenuAsPrimaryAction = true
+        //sortButton.changesSelectionAsPrimaryAction = true
     }
     
-//    func giveMeAnArray () -> [TestModel] {
-//        var myTestArray: [TestModel] = []
-//        for i in 1...15 {
-//            myTestArray.append(TestModel(testPic: "image\(i)",
-//                                         testTitle: "Фильм \(i)",
-//                                         testYear: "\(Int.random(in: 2000..<2025))",
-//                                         testRating: String(format: "%0.1f", Float.random(in: 5..<10))
-//                                        ))
-//        }
-//        return myTestArray
-//    }
+    func update(sortMethod: String) {
+        switch sortMethod {
+            case "ratingDown":
+                filmModel.sorting(method: "raiting", isMore: true, whatToSort: isShowLikedFilmsButtonPressed)
+                print("Рейтинг. По убыванию")
+            case "ratingUp":
+                filmModel.sorting(method: "raiting", isMore: false, whatToSort: isShowLikedFilmsButtonPressed)
+                print("Рейтинг. По возрастанию")
+            case "yearDown":
+                filmModel.sorting(method: "year", isMore: true, whatToSort: isShowLikedFilmsButtonPressed)
+                print("Год. По убыванию")
+            case "yearUp":
+                filmModel.sorting(method: "year", isMore: false, whatToSort: isShowLikedFilmsButtonPressed)
+                print("Год. По возрастанию")
+            default:
+                print("Error")
+        }
+        self.mainCollectionView.reloadData()
+    }
+    
+    @IBAction func showLikedFilmsButtonPressed(_ sender: UIButton) {
+        isShowLikedFilmsButtonPressed.toggle()
+        if isShowLikedFilmsButtonPressed {
+            print("Showed liked films")
+            showLikedFilmsButton.setImage(UIImage(systemName: "bolt.heart.fill"), for: .normal)
+        } else {
+            print("Showed all films")
+            showLikedFilmsButton.setImage(UIImage(systemName: "bolt.heart"), for: .normal)
+        }
+ 
+        self.mainCollectionView.reloadData()
+    }
 }
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return network.filmsArray.count
+        return isShowLikedFilmsButtonPressed ? filmModel.likedFilmsArray.count : filmModel.filmsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -94,84 +112,77 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             return UICollectionViewCell()
         }
         
-        cell.posterPreviewImageView.kf.indicatorType = .activity
-        cell.posterPreviewImageView.kf.setImage(with: URL(string: network.filmsArray[indexPath.row].posterUrlPreview))
-        cell.filmTitleLabel.text = network.filmsArray[indexPath.row].nameRu
-        cell.releaseYearLabel.text = "\(network.filmsArray[indexPath.row].year)"
-        if let rating = network.filmsArray[indexPath.row].ratingKinopoisk {
-            cell.ratingLabel.text = "\(rating)"
-        }
+        let item = isShowLikedFilmsButtonPressed ? filmModel.likedFilmsArray[indexPath.row] : filmModel.filmsArray[indexPath.row]
+        cell.film = item
 
+        cell.yourobj = {
+            item.isLiked.toggle()
+            self.filmModel.addOrRemoveFilmToFavorite(film: item)
+            self.mainCollectionView.reloadData()
+        }
         return cell
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        network.loadFilmDeteilData(enter: network.filmsArray[indexPath.row].kinopoiskId) { deteilFilmData in
+        let item = isShowLikedFilmsButtonPressed ? filmModel.likedFilmsArray[indexPath.row] : filmModel.filmsArray[indexPath.row]
+
+        filmModel.network.loadFilmDeteilDataAndImages(kinopoiskID: item.kinopoiskId) { deteilFilmData, imagesArray in
+            
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DeteilFilmViewController") as? DeteilFilmViewController else { return }
             vc.deteilFilmItem = deteilFilmData
+            vc.filmPicsArray = imagesArray
+            print(item.isLiked)
+            vc.isLiked = item.isLiked
+            
+            vc.onLikePressed = {
+                item.isLiked.toggle()
+                item.isLiked ? print("Like pressed in DeteilFilmViewController") : print("Dislike pressed in DeteilFilmViewController")
+                self.filmModel.addOrRemoveFilmToFavorite(film: item)
+                self.mainCollectionView.reloadData()
+            }
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
-        ////self.present(vc, animated: true)
     }
 }
 
 
 extension MainViewController: UISearchBarDelegate {
-    
-    @objc func swipedDownToShowUISearchBar(gesture : UIGestureRecognizer) {
-        if let swipeGesture = gesture as? UISwipeGestureRecognizer{
-            switch swipeGesture.direction{
-            case UISwipeGestureRecognizer.Direction.down:
-                searchBar.isHidden = false
-                collectionViewTopConstraint?.isActive = false
-                collectionViewTopConstraint = mainCollectionView.topAnchor.constraint(equalTo: self.searchBar.bottomAnchor, constant: 0)
-                collectionViewTopConstraint?.isActive = true
-                print("User swiped Down")
-            case UISwipeGestureRecognizer.Direction.up:
-                searchBar.isHidden = true
-                collectionViewTopConstraint?.isActive = false
-                collectionViewTopConstraint = mainCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
-                collectionViewTopConstraint?.isActive = true
-                print("User swiped Up")
-            default:
-                break
-            }
-            UIView.animate(withDuration: 1, animations: {
-                self.view.layoutIfNeeded()
-            }, completion: nil)
-        }
-    }
-    
+
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = true
+        //searchBar.showsCancelButton = true
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-//        arrayFlickrPicksURLs.removeAll()
-        searchBar.showsCancelButton = false
         searchBar.text = ""
 
         view.endEditing(true)    // hide keyboard
-        
-//        self.getJSONFromApi {
-//            self.mainCollectionView.reloadData()
-//        }
     }
     
     // Shift + Command + K to show keyboard
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        arrayFlickrPicksURLs.removeAll()
-        searchBar.showsCancelButton = false
+        //searchBar.showsCancelButton = false
         
         view.endEditing(true)   // hide keyboard
         
-//        self.getJSONFromApi(picturesToSearch: searchBar.text) {
-//            self.mainCollectionView.reloadData()
-//        }
+        guard let searchText = searchBar.text else { return }
+        
+        filmModel.network.downloader(apiToUse: .searchFilm, keyword: searchText) { (foundFilmsArray: KinopoiskSearchedFilm) in
+            self.filmModel.filmsArray.removeAll()
+            
+            for film in foundFilmsArray.films {
+                let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.filmId)
+
+                self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.filmId,
+                                                                        nameRu: film.nameRu,
+                                                                        ratingKinopoisk: Double(film.rating) ?? 0.0,
+                                                                        year: Int(film.year) ?? 0,
+                                                                        posterUrlPreview: film.posterUrlPreview,
+                                                                        isLiked: isLikedFilm))
+            }
+            self.mainCollectionView.reloadData()
+        }
     }
 }
 

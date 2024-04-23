@@ -24,9 +24,19 @@ class DeteilFilmViewController: UIViewController {
     @IBOutlet weak var filmGenres: UILabel!
     @IBOutlet weak var filmDuration: UILabel!
     
+    
+    @IBOutlet weak var tryButton: UIButton!
+    @IBOutlet weak var likeButton: UIButton!
+    
+    var onLikePressed: ( () -> () )?
     var deteilFilmItem: KinopoiskFilmDeteilModel!
     var filmPicsArray: [ImageItem] = []
-    let network = NetworkModel()
+    var isLiked: Bool = false
+//    {
+//        didSet {
+//            isLiked ? likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,9 +47,9 @@ class DeteilFilmViewController: UIViewController {
         posterImageView.kf.indicatorType = .activity
         posterImageView.kf.setImage(with: URL(string: deteilFilmItem.posterUrl))
         filmTitleLabel.text = deteilFilmItem.nameRu
-        originalFilmTitleLabel.text = deteilFilmItem.nameOriginal ?? ""
+        originalFilmTitleLabel.text = deteilFilmItem.nameOriginal
         releaseYearLabel.text = "\(deteilFilmItem.year)"
-        ratingLabel.text = "\(deteilFilmItem.ratingKinopoisk ?? 0.0)"
+        ratingLabel.text = "\(deteilFilmItem.ratingKinopoisk)"
         filmDuration.text = "\(deteilFilmItem.filmLength) минут"
         descriptionTextView.text = deteilFilmItem.description
         
@@ -57,20 +67,14 @@ class DeteilFilmViewController: UIViewController {
         }
         filmCountry.text = countries
         filmGenres.text = genres
-        filmDuration.text = ""
         
-        network.loadFilmPictures(enter: deteilFilmItem.kinopoiskId, completion: { images in
-            print("Images downloaded")
-            for image in images.items {
-                self.filmPicsArray.append(image)
-            }
-            self.galleryCollection.reloadData()
-        })
-        
+        isLiked ? likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
     }
-
-    
-    @IBAction func openFullPoster(_ sender: UITapGestureRecognizer) {
+       
+    @IBAction func likeButtonPressed(_ sender: Any) {
+        isLiked.toggle()
+        isLiked ? likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        onLikePressed?()
     }
 }
 

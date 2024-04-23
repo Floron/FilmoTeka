@@ -20,7 +20,7 @@ struct KinopoiskFilmsArrayModel: Codable {
 struct FilmItem: Codable {
     var kinopoiskId: Int
     var nameRu: String
-    var ratingKinopoisk: Double?
+    var ratingKinopoisk: Double
     var year: Int
     var posterUrlPreview: String
 }
@@ -64,4 +64,23 @@ struct KinopoiskFilmImagesModel: Codable {
 
 struct ImageItem: Codable {
     var imageUrl, previewUrl: String
+}
+
+
+
+// MARK: - KinopoiskSearchedFilm
+struct KinopoiskSearchedFilm: Codable {
+    var keyword: String
+    var pagesCount: Int
+    var films: [SearchedFilms]
+    var searchFilmsCountResult: Int
+}
+
+// MARK: - SearchedFilms
+struct SearchedFilms: Codable {
+    var filmId: Int
+    var nameRu: String
+    var year: String
+    var rating: String
+    var posterUrlPreview: String
 }
