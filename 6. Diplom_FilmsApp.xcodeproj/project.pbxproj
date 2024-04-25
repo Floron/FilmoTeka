@@ -10,6 +10,7 @@
 		2E83F5D22BBB49D10023D9C3 /* RoundingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83F5D12BBB49D10023D9C3 /* RoundingTransition.swift */; };
 		2E83F5D42BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83F5D32BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift */; };
 		2E8C41442BBAF89000AEEB02 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */; };
+		2EA70EEB2BD3BCFC003AF9F5 /* ModelRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70EEA2BD3BCFC003AF9F5 /* ModelRealm.swift */; };
 		2ECDFA9F2BB15DAC001DA8E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFA9E2BB15DAC001DA8E3 /* AppDelegate.swift */; };
 		2ECDFAA12BB15DAC001DA8E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFAA02BB15DAC001DA8E3 /* SceneDelegate.swift */; };
 		2ECDFAA32BB15DAC001DA8E3 /* 1_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFAA22BB15DAC001DA8E3 /* 1_MainViewController.swift */; };
@@ -33,6 +34,7 @@
 		2E83F5D12BBB49D10023D9C3 /* RoundingTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundingTransition.swift; sourceTree = "<group>"; };
 		2E83F5D32BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 02_FilmPicsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		2EA70EEA2BD3BCFC003AF9F5 /* ModelRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRealm.swift; sourceTree = "<group>"; };
 		2ECDFA9B2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6. Diplom_FilmsApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ECDFA9E2BB15DAC001DA8E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2ECDFAA02BB15DAC001DA8E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				2ECDFABA2BB17F9F001DA8E3 /* KinopoiskFilmsModels.swift */,
+				2EA70EEA2BD3BCFC003AF9F5 /* ModelRealm.swift */,
 				2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */,
 				2EEC333F2BC7C721009AE0E1 /* ModelForCollectionView.swift */,
 			);
@@ -293,6 +296,7 @@
 				2E83F5D22BBB49D10023D9C3 /* RoundingTransition.swift in Sources */,
 				2E83F5D42BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift in Sources */,
 				2ECDFAC32BB1C743001DA8E3 /* 6_PosterFullViewController.swift in Sources */,
+				2EA70EEB2BD3BCFC003AF9F5 /* ModelRealm.swift in Sources */,
 				2ECDFAA12BB15DAC001DA8E3 /* SceneDelegate.swift in Sources */,
 				2ECDFABB2BB17F9F001DA8E3 /* KinopoiskFilmsModels.swift in Sources */,
 			);

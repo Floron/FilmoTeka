@@ -6,16 +6,23 @@
 //
 
 import Foundation
+import RealmSwift
 
-class ModelForCollectionView {
-    let kinopoiskId: Int
-    let nameRu: String
-    let ratingKinopoisk: Double
-    let year: Int
-    let posterUrlPreview: String
-    var isLiked: Bool
+class ModelForCollectionView: Object {
+    @objc dynamic var kinopoiskId: Int = 0
+    @objc dynamic var nameRu: String = ""
+    @objc dynamic var ratingKinopoisk: Double = 0.0
+    @objc dynamic var year: Int = 2000
+    @objc dynamic var posterUrlPreview: String = ""
+    @objc dynamic var isLiked: Bool = false
     
-    init(kinopoiskId: Int, nameRu: String, ratingKinopoisk: Double, year: Int, posterUrlPreview: String, isLiked: Bool) {
+    override static func primaryKey() -> String? {
+        return "kinopoiskId"
+    }
+    
+    convenience init(kinopoiskId: Int, nameRu: String, ratingKinopoisk: Double, year: Int, posterUrlPreview: String, isLiked: Bool) {
+        self.init()
+        
         self.kinopoiskId = kinopoiskId
         self.nameRu = nameRu
         self.ratingKinopoisk = ratingKinopoisk
