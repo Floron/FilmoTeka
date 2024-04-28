@@ -14,10 +14,17 @@ class RealmService {
      
     static let shared = RealmService()
     var rm = try! Realm()
-    var likedFilmsArray: Results<ModelForCollectionView>! {
-        get {
-            return rm.objects(ModelForCollectionView.self)
-            }
+    var likedFilmsArray: Results<ModelForCollectionView>! //{
+//        get {
+//            return rm.objects(ModelForCollectionView.self)
+//            }
+//        set(sortedArray) {
+//            self.likedFilmsArray = sortedArray
+//        }
+    //}
+    
+    func updateLikedFilmsArray() {
+        self.likedFilmsArray = rm.objects(ModelForCollectionView.self)
     }
     
     func printRealmBDpath() {
@@ -31,6 +38,7 @@ class RealmService {
                 object.isLiked = true
                 rm.create(ModelForCollectionView.self, value: object)
                 //rm.add(object)
+                updateLikedFilmsArray()
             }
         } catch {
             print("Cant create: \(error.localizedDescription)")
@@ -42,6 +50,7 @@ class RealmService {
             try rm.write {
                 //object.isLiked = false
                 rm.delete(rm.objects(ModelForCollectionView.self).filter("kinopoiskId=%@",object.kinopoiskId))
+                updateLikedFilmsArray()
             }
         } catch {
             print("Cant delete: \(error.localizedDescription)")

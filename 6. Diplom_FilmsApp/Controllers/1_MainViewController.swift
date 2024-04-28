@@ -43,8 +43,10 @@ class MainViewController: UIViewController {
                                                               posterUrlPreview: film.posterUrlPreview,
                                                               isLiked: isLikedFilm))
             }
-            print("Data downloaded")
-            self.mainCollectionView.reloadData()
+            DispatchQueue.main.async {
+                print("Data downloaded")
+                self.mainCollectionView.reloadData()
+            }
         }
         
         filmModel.realm.printRealmBDpath()
@@ -73,21 +75,23 @@ class MainViewController: UIViewController {
     func update(sortMethod: String) {
         switch sortMethod {
             case "ratingDown":
-                filmModel.sorting(method: "raiting", isMore: true, whatToSort: isShowLikedFilmsButtonPressed)
+                filmModel.sorting(method: "ratingKinopoisk", isMore: false, whatToSort: isShowLikedFilmsButtonPressed)
                 print("Рейтинг. По убыванию")
             case "ratingUp":
-                filmModel.sorting(method: "raiting", isMore: false, whatToSort: isShowLikedFilmsButtonPressed)
+                filmModel.sorting(method: "ratingKinopoisk", isMore: true, whatToSort: isShowLikedFilmsButtonPressed)
                 print("Рейтинг. По возрастанию")
             case "yearDown":
-                filmModel.sorting(method: "year", isMore: true, whatToSort: isShowLikedFilmsButtonPressed)
+                filmModel.sorting(method: "year", isMore: false, whatToSort: isShowLikedFilmsButtonPressed)
                 print("Год. По убыванию")
             case "yearUp":
-                filmModel.sorting(method: "year", isMore: false, whatToSort: isShowLikedFilmsButtonPressed)
+                filmModel.sorting(method: "year", isMore: true, whatToSort: isShowLikedFilmsButtonPressed)
                 print("Год. По возрастанию")
             default:
                 print("Error")
         }
-        self.mainCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
     
     @IBAction func showLikedFilmsButtonPressed(_ sender: UIButton) {
@@ -100,7 +104,9 @@ class MainViewController: UIViewController {
             showLikedFilmsButton.setImage(UIImage(systemName: "bolt.heart"), for: .normal)
         }
  
-        self.mainCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
 }
 
@@ -120,31 +126,37 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.yourobj = {
             //item.isLiked.toggle()
             self.filmModel.addOrRemoveFilmToFavorite(film: item)
-            self.mainCollectionView.reloadData()
+            DispatchQueue.main.async {
+                self.mainCollectionView.reloadData()
+            }
         }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let item = isShowLikedFilmsButtonPressed ? filmModel.realm.likedFilmsArray[indexPath.row] : filmModel.filmsArray[indexPath.row]
+        DispatchQueue.main.async {
+            let item = self.isShowLikedFilmsButtonPressed ? self.filmModel.realm.likedFilmsArray[indexPath.row] : self.filmModel.filmsArray[indexPath.row]
 
-        filmModel.network.loadFilmDeteilDataAndImages(kinopoiskID: item.kinopoiskId) { deteilFilmData, imagesArray in
+            self.filmModel.network.loadFilmDeteilDataAndImages(kinopoiskID: item.kinopoiskId) { deteilFilmData, imagesArray in
+                
+                guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DeteilFilmViewController") as? DeteilFilmViewController else { return }
+                vc.deteilFilmItem = deteilFilmData
+                vc.filmPicsArray = imagesArray
+                print(item.isLiked)
+                vc.isLiked = item.isLiked
+                
             
-            guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "DeteilFilmViewController") as? DeteilFilmViewController else { return }
-            vc.deteilFilmItem = deteilFilmData
-            vc.filmPicsArray = imagesArray
-            print(item.isLiked)
-            vc.isLiked = item.isLiked
-            
-        
-            vc.onLikePressed = {
-                //item.isLiked.toggle()
-                item.isLiked ? print("Like pressed in DeteilFilmViewController") : print("Dislike pressed in DeteilFilmViewController")
-                self.filmModel.addOrRemoveFilmToFavorite(film: item)
-                self.mainCollectionView.reloadData()
+                vc.onLikePressed = {
+                    //item.isLiked.toggle()
+                    item.isLiked ? print("Like pressed in DeteilFilmViewController") : print("Dislike pressed in DeteilFilmViewController")
+                    self.filmModel.addOrRemoveFilmToFavorite(film: item)
+                    DispatchQueue.main.async {
+                        self.mainCollectionView.reloadData()
+                    }
+                }
+                self.navigationController?.pushViewController(vc, animated: true)
             }
-            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
@@ -185,7 +197,9 @@ extension MainViewController: UISearchBarDelegate {
                                                                         posterUrlPreview: film.posterUrlPreview,
                                                                         isLiked: isLikedFilm))
             }
-            self.mainCollectionView.reloadData()
+            DispatchQueue.main.async {
+                self.mainCollectionView.reloadData()
+            }
         }
     }
 }

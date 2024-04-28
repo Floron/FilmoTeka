@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class ModelForCollectionView: Object {
+ class ModelForCollectionView: Object {
     @objc dynamic var kinopoiskId: Int = 0
     @objc dynamic var nameRu: String = ""
     @objc dynamic var ratingKinopoisk: Double = 0.0
@@ -29,89 +29,5 @@ class ModelForCollectionView: Object {
         self.year = year
         self.posterUrlPreview = posterUrlPreview
         self.isLiked = isLiked
-    }
-}
-
-//      1. Запуск приложения
-//      2. Загружается массив фильмов с ресурса
-//      3. Массив фильмов приводится к общему типу данных
-//      4. Производится анализ на наличие фильма в базе любимых фильмов
-//      5. Отображение на экране
-
-class FilmModel {
-    let network = NetworkModel()
-    //let zaprosK_Realm = RealmService.shared
-    
-    let realm = RealmService.shared
-    
-    var filmsArray: [ModelForCollectionView] = []
-    
-    /*
-    var likedFilmsArray: [ModelForCollectionView] = [
-        ModelForCollectionView(kinopoiskId: 435, nameRu: "Зеленая миля", ratingKinopoisk: 9.1, year: 1999, posterUrlPreview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/435.jpg", isLiked: true),
-        ModelForCollectionView(kinopoiskId: 535341, nameRu: "1+1", ratingKinopoisk: 8.8, year: 2011, posterUrlPreview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/535341.jpg", isLiked: true),
-        ModelForCollectionView(kinopoiskId: 3498, nameRu: "Властелин колец: Возвращение короля", ratingKinopoisk: 8.7, year: 2003, posterUrlPreview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/3498.jpg", isLiked: true),
-        ModelForCollectionView(kinopoiskId: 328, nameRu: "Властелин колец: Братство Кольца", ratingKinopoisk: 8.6, year: 2001, posterUrlPreview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/328.jpg", isLiked: true),
-        ModelForCollectionView(kinopoiskId: 843650, nameRu: "Мстители: Финал", ratingKinopoisk: 7.9, year: 2019, posterUrlPreview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/843650.jpg", isLiked: true)
-    ]
-    */
-   // var sortedFilmsArray: [ModelForCollectionView] = []
-    
-    
-    func isFilmInFavorite(id: Int) -> Bool {
-        for film in realm.likedFilmsArray {
-            if film.kinopoiskId == id {
-                return true
-            }
-        }
-        return false
-    }
-    
-    func addOrRemoveFilmToFavorite(film: ModelForCollectionView) {
-        if film.isLiked {
-            print("\(film.nameRu)  was deleted")
-            
-            for item in filmsArray {
-                if item.kinopoiskId == film.kinopoiskId {
-                    item.isLiked = false
-                }
-            }
-            
-            realm.deleteFilm(film)
-
-        } else {
-            print("\(film.nameRu) liked now!!!!")
-            realm.create(film)
-        }
-    }
-    
-    func sorting(method: String, isMore boolType: Bool, whatToSort: Bool = false) {
-        //let sortType = method  // "ratingKinopoisk" or "year"
-        //boolType ? $0.method > $1.method : $0.method < $1.method
-        
-        if method == "raiting" {
-            if whatToSort {
-                //zaprosK_Realm.likedFilmsArray.sort
-//                likedFilmsArray.sort {
-//                    boolType ? $0.ratingKinopoisk > $1.ratingKinopoisk : $0.ratingKinopoisk < $1.ratingKinopoisk
-//                }
-            } else {
-                filmsArray.sort {
-                    boolType ? $0.ratingKinopoisk > $1.ratingKinopoisk : $0.ratingKinopoisk < $1.ratingKinopoisk
-                }
-            }
-        }
-        
-        if method == "year" {
-            if whatToSort {
-//                likedFilmsArray.sort {
-//                    boolType ? $0.year > $1.year : $0.year < $1.year
-//                }
-            } else {
-                filmsArray.sort {
-                    boolType ? $0.year > $1.year : $0.year < $1.year
-                }
-            }
-        }
     }
 }
