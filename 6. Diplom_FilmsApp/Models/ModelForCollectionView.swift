@@ -40,9 +40,13 @@ class ModelForCollectionView: Object {
 
 class FilmModel {
     let network = NetworkModel()
+    //let zaprosK_Realm = RealmService.shared
+    
+    let realm = RealmService.shared
     
     var filmsArray: [ModelForCollectionView] = []
     
+    /*
     var likedFilmsArray: [ModelForCollectionView] = [
         ModelForCollectionView(kinopoiskId: 435, nameRu: "Зеленая миля", ratingKinopoisk: 9.1, year: 1999, posterUrlPreview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/435.jpg", isLiked: true),
         ModelForCollectionView(kinopoiskId: 535341, nameRu: "1+1", ratingKinopoisk: 8.8, year: 2011, posterUrlPreview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/535341.jpg", isLiked: true),
@@ -50,10 +54,12 @@ class FilmModel {
         ModelForCollectionView(kinopoiskId: 328, nameRu: "Властелин колец: Братство Кольца", ratingKinopoisk: 8.6, year: 2001, posterUrlPreview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/328.jpg", isLiked: true),
         ModelForCollectionView(kinopoiskId: 843650, nameRu: "Мстители: Финал", ratingKinopoisk: 7.9, year: 2019, posterUrlPreview: "https://kinopoiskapiunofficial.tech/images/posters/kp_small/843650.jpg", isLiked: true)
     ]
+    */
    // var sortedFilmsArray: [ModelForCollectionView] = []
     
+    
     func isFilmInFavorite(id: Int) -> Bool {
-        for film in likedFilmsArray {
+        for film in realm.likedFilmsArray {
             if film.kinopoiskId == id {
                 return true
             }
@@ -63,37 +69,32 @@ class FilmModel {
     
     func addOrRemoveFilmToFavorite(film: ModelForCollectionView) {
         if film.isLiked {
-            likedFilmsArray.append(film)
-        } else {
-            if let index = likedFilmsArray.firstIndex(where: { $0.kinopoiskId == film.kinopoiskId }) {
-                print("\(film.nameRu) is unliked now!!!!")
-                likedFilmsArray.remove(at: index)
-            }
+            print("\(film.nameRu)  was deleted")
+            
             for item in filmsArray {
                 if item.kinopoiskId == film.kinopoiskId {
                     item.isLiked = false
                 }
             }
+            
+            realm.deleteFilm(film)
+
+        } else {
+            print("\(film.nameRu) liked now!!!!")
+            realm.create(film)
         }
     }
     
-    
-//    func showLikedItems() -> [ModelForCollectionView] {
-//        for film in filmsArray {
-//            if film.isLiked {
-//                likedFilmsArray.append(film)
-//            }
-//        }
-//        return likedFilmsArray
-//    }
-    
-    
     func sorting(method: String, isMore boolType: Bool, whatToSort: Bool = false) {
+        //let sortType = method  // "ratingKinopoisk" or "year"
+        //boolType ? $0.method > $1.method : $0.method < $1.method
+        
         if method == "raiting" {
             if whatToSort {
-                likedFilmsArray.sort {
-                    boolType ? $0.ratingKinopoisk > $1.ratingKinopoisk : $0.ratingKinopoisk < $1.ratingKinopoisk
-                }
+                //zaprosK_Realm.likedFilmsArray.sort
+//                likedFilmsArray.sort {
+//                    boolType ? $0.ratingKinopoisk > $1.ratingKinopoisk : $0.ratingKinopoisk < $1.ratingKinopoisk
+//                }
             } else {
                 filmsArray.sort {
                     boolType ? $0.ratingKinopoisk > $1.ratingKinopoisk : $0.ratingKinopoisk < $1.ratingKinopoisk
@@ -103,9 +104,9 @@ class FilmModel {
         
         if method == "year" {
             if whatToSort {
-                likedFilmsArray.sort {
-                    boolType ? $0.year > $1.year : $0.year < $1.year
-                }
+//                likedFilmsArray.sort {
+//                    boolType ? $0.year > $1.year : $0.year < $1.year
+//                }
             } else {
                 filmsArray.sort {
                     boolType ? $0.year > $1.year : $0.year < $1.year

@@ -14,50 +14,68 @@ class RealmService {
      
     static let shared = RealmService()
     var rm = try! Realm()
-    var usefulConnections: Results<ModelForCollectionView>!
-    
-    func create<T: Object>(_ object: T){
-      do{
-        try rm.write{
-          rm.add(object)
-        }
-      }catch{
-        print("Cant create: \(error.localizedDescription)")
-      }
+    var likedFilmsArray: Results<ModelForCollectionView>! {
+        get {
+            return rm.objects(ModelForCollectionView.self)
+            }
     }
     
-    func update<T: Object>(_ object: T, dictionary: [String: Any?]){
-        do {
-            try rm.write {
-                for (key, value) in dictionary {
-                    object.setValue(value, forKey: key)
-                }
+    func printRealmBDpath() {
+        print("============   Realm file    ==============")
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+    }
+    
+    func create(_ object: ModelForCollectionView) {
+        do{
+            try rm.write{
+                object.isLiked = true
+                rm.create(ModelForCollectionView.self, value: object)
+                //rm.add(object)
             }
         } catch {
-            print("Cant update: \(error.localizedDescription)")
+            print("Cant create: \(error.localizedDescription)")
+        }
+    }
+    
+    func deleteFilm(_ object: ModelForCollectionView) {
+        do {
+            try rm.write {
+                //object.isLiked = false
+                rm.delete(rm.objects(ModelForCollectionView.self).filter("kinopoiskId=%@",object.kinopoiskId))
+            }
+        } catch {
+            print("Cant delete: \(error.localizedDescription)")
         }
     }
    
-    /*
-    func searchPerson(userCardId: String, userCardPin: Int) -> Bool {
-        let realm = RealmService.shared.rm
-        usefulConnections = realm.objects(BankUserModel.self)
-        
-        for person in usefulConnections {
-            if person.userCardId == userCardId && person.userCardPin == userCardPin {
-                return true
-            }
-        }
-        return false
-    }
     
-    func getPersonData (cardNumber: String, PINcode: Int) -> BankUserModel? {
-        for person in usefulConnections {
-            if person.userCardId == cardNumber && person.userCardPin == PINcode {
-                return person
+//    func isFilmInFavorite(id: Int) -> Bool {
+//       // let realm = RealmService.shared.rm
+//       // likedFilmsArray = realm.objects(ModelForCollectionView.self)
+//        for film in likedFilmsArray {
+//            if film.kinopoiskId == id {
+//                return true
+//            }
+//        }
+//        return false
+//    }
+    
+    
+    /*
+    func addOrRemoveFilmToFavorite(film: ModelForCollectionView) {
+        if film.isLiked {
+            likedFilmsArray.append(film)
+        } else {
+            if let index = likedFilmsArray.firstIndex(where: { $0.kinopoiskId == film.kinopoiskId }) {
+                print("\(film.nameRu) is unliked now!!!!")
+                likedFilmsArray.remove(at: index)
+            }
+            for item in filmsArray {
+                if item.kinopoiskId == film.kinopoiskId {
+                    item.isLiked = false
+                }
             }
         }
-        return nil
     }
     */
 }

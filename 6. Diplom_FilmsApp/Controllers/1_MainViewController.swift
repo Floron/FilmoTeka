@@ -32,10 +32,10 @@ class MainViewController: UIViewController {
         
         setupSortButton()
         
-        
         filmModel.network.downloader(apiToUse: .defaultUrl) { (model: KinopoiskFilmsArrayModel) in
             for film in model.items {
                 let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.kinopoiskId)
+                //isFilmInFavorite(id: film.kinopoiskId)
                 self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.kinopoiskId,
                                                               nameRu: film.nameRu,
                                                               ratingKinopoisk: film.ratingKinopoisk,
@@ -46,6 +46,8 @@ class MainViewController: UIViewController {
             print("Data downloaded")
             self.mainCollectionView.reloadData()
         }
+        
+        filmModel.realm.printRealmBDpath()
     }
 
     func setupSortButton() {
@@ -104,7 +106,7 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return isShowLikedFilmsButtonPressed ? filmModel.likedFilmsArray.count : filmModel.filmsArray.count
+        return isShowLikedFilmsButtonPressed ? filmModel.realm.likedFilmsArray.count : filmModel.filmsArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -112,11 +114,11 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             return UICollectionViewCell()
         }
         
-        let item = isShowLikedFilmsButtonPressed ? filmModel.likedFilmsArray[indexPath.row] : filmModel.filmsArray[indexPath.row]
+        let item = isShowLikedFilmsButtonPressed ? filmModel.realm.likedFilmsArray[indexPath.row] : filmModel.filmsArray[indexPath.row]
         cell.film = item
 
         cell.yourobj = {
-            item.isLiked.toggle()
+            //item.isLiked.toggle()
             self.filmModel.addOrRemoveFilmToFavorite(film: item)
             self.mainCollectionView.reloadData()
         }
@@ -125,7 +127,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let item = isShowLikedFilmsButtonPressed ? filmModel.likedFilmsArray[indexPath.row] : filmModel.filmsArray[indexPath.row]
+        let item = isShowLikedFilmsButtonPressed ? filmModel.realm.likedFilmsArray[indexPath.row] : filmModel.filmsArray[indexPath.row]
 
         filmModel.network.loadFilmDeteilDataAndImages(kinopoiskID: item.kinopoiskId) { deteilFilmData, imagesArray in
             
@@ -135,8 +137,9 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             print(item.isLiked)
             vc.isLiked = item.isLiked
             
+        
             vc.onLikePressed = {
-                item.isLiked.toggle()
+                //item.isLiked.toggle()
                 item.isLiked ? print("Like pressed in DeteilFilmViewController") : print("Dislike pressed in DeteilFilmViewController")
                 self.filmModel.addOrRemoveFilmToFavorite(film: item)
                 self.mainCollectionView.reloadData()
@@ -173,6 +176,7 @@ extension MainViewController: UISearchBarDelegate {
             
             for film in foundFilmsArray.films {
                 let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.filmId)
+               // isFilmInFavorite(id: film.filmId)
 
                 self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.filmId,
                                                                         nameRu: film.nameRu,
@@ -185,4 +189,3 @@ extension MainViewController: UISearchBarDelegate {
         }
     }
 }
-
