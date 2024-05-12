@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     
     var filmModel = FilmModel()
     var searchController = UISearchController()
-    
+
     var isShowLikedFilmsButtonPressed = false
         
     override func viewDidLoad() {
@@ -33,17 +33,18 @@ class MainViewController: UIViewController {
         setupSortButton()
         
         filmModel.network.downloader(apiToUse: .defaultUrl) { (model: KinopoiskFilmsArrayModel) in
+            DispatchQueue.main.async {
             for film in model.items {
                 let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.kinopoiskId)
-                //isFilmInFavorite(id: film.kinopoiskId)
+                
                 self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.kinopoiskId,
-                                                              nameRu: film.nameRu,
-                                                              ratingKinopoisk: film.ratingKinopoisk,
-                                                              year: film.year,
-                                                              posterUrlPreview: film.posterUrlPreview,
-                                                              isLiked: isLikedFilm))
+                                                                        nameRu: film.nameRu,
+                                                                        ratingKinopoisk: film.ratingKinopoisk,
+                                                                        year: film.year,
+                                                                        posterUrlPreview: film.posterUrlPreview,
+                                                                        isLiked: isLikedFilm))
             }
-            DispatchQueue.main.async {
+            
                 print("Data downloaded")
                 self.mainCollectionView.reloadData()
             }
@@ -163,11 +164,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 
 extension MainViewController: UISearchBarDelegate {
-
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        //searchBar.showsCancelButton = true
-    }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
 
@@ -177,27 +173,27 @@ extension MainViewController: UISearchBarDelegate {
     // Shift + Command + K to show keyboard
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        //searchBar.showsCancelButton = false
-        
         view.endEditing(true)   // hide keyboard
         
         guard let searchText = searchBar.text else { return }
         
+       
         filmModel.network.downloader(apiToUse: .searchFilm, keyword: searchText) { (foundFilmsArray: KinopoiskSearchedFilm) in
             self.filmModel.filmsArray.removeAll()
             
-            for film in foundFilmsArray.films {
-                let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.filmId)
-               // isFilmInFavorite(id: film.filmId)
-
-                self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.filmId,
-                                                                        nameRu: film.nameRu,
-                                                                        ratingKinopoisk: Double(film.rating) ?? 0.0,
-                                                                        year: Int(film.year) ?? 0,
-                                                                        posterUrlPreview: film.posterUrlPreview,
-                                                                        isLiked: isLikedFilm))
-            }
             DispatchQueue.main.async {
+                for film in foundFilmsArray.films {
+                    let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.filmId)
+
+                    self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.filmId,
+                                                                            nameRu: film.nameRu,
+                                                                            ratingKinopoisk: Double(film.rating) ?? 0.0,
+                                                                            year: Int(film.year) ?? 0,
+                                                                            posterUrlPreview: film.posterUrlPreview,
+                                                                            isLiked: isLikedFilm))
+                }
+            
+                //DispatchQueue.main.async {      // с Alamofire все работало
                 self.mainCollectionView.reloadData()
             }
         }

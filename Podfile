@@ -7,7 +7,7 @@ target '6. Diplom_FilmsApp' do
 
   # Pods for 6. Diplom_FilmsApp
 pod 'Kingfisher'
-pod 'Alamofire'
+# pod 'Alamofire'
 pod ‘RealmSwift’
 
 end

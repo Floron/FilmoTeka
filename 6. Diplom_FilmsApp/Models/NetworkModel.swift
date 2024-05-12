@@ -5,6 +5,8 @@
 //  Created by Floron on 01.04.2024.
 //
 
+/*
+
 import Foundation
 import Alamofire
 
@@ -74,3 +76,4 @@ class NetworkModel {
         })
     }
 }
+*/

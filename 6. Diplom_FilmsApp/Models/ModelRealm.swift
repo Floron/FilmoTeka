@@ -14,14 +14,7 @@ class RealmService {
      
     static let shared = RealmService()
     var rm = try! Realm()
-    var likedFilmsArray: Results<ModelForCollectionView>! //{
-//        get {
-//            return rm.objects(ModelForCollectionView.self)
-//            }
-//        set(sortedArray) {
-//            self.likedFilmsArray = sortedArray
-//        }
-    //}
+    var likedFilmsArray: Results<ModelForCollectionView>!
     
     func updateLikedFilmsArray() {
         self.likedFilmsArray = rm.objects(ModelForCollectionView.self)

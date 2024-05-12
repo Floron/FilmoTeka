@@ -10,6 +10,7 @@
 		2E83F5D22BBB49D10023D9C3 /* RoundingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83F5D12BBB49D10023D9C3 /* RoundingTransition.swift */; };
 		2E83F5D42BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83F5D32BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift */; };
 		2E8C41442BBAF89000AEEB02 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */; };
+		2E9A5DA52BF0E8310036D4AB /* NetworkModelWithoutAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A5DA42BF0E8310036D4AB /* NetworkModelWithoutAlamofire.swift */; };
 		2EA70EEB2BD3BCFC003AF9F5 /* ModelRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70EEA2BD3BCFC003AF9F5 /* ModelRealm.swift */; };
 		2EA70EED2BDECAE0003AF9F5 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70EEC2BDECAE0003AF9F5 /* FilmModel.swift */; };
 		2ECDFA9F2BB15DAC001DA8E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFA9E2BB15DAC001DA8E3 /* AppDelegate.swift */; };
@@ -35,6 +36,7 @@
 		2E83F5D12BBB49D10023D9C3 /* RoundingTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundingTransition.swift; sourceTree = "<group>"; };
 		2E83F5D32BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 02_FilmPicsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		2E9A5DA42BF0E8310036D4AB /* NetworkModelWithoutAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelWithoutAlamofire.swift; sourceTree = "<group>"; };
 		2EA70EEA2BD3BCFC003AF9F5 /* ModelRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRealm.swift; sourceTree = "<group>"; };
 		2EA70EEC2BDECAE0003AF9F5 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		2ECDFA9B2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6. Diplom_FilmsApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,7 @@
 				2ECDFABA2BB17F9F001DA8E3 /* KinopoiskFilmsModels.swift */,
 				2EA70EEA2BD3BCFC003AF9F5 /* ModelRealm.swift */,
 				2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */,
+				2E9A5DA42BF0E8310036D4AB /* NetworkModelWithoutAlamofire.swift */,
 				2EEC333F2BC7C721009AE0E1 /* ModelForCollectionView.swift */,
 				2EA70EEC2BDECAE0003AF9F5 /* FilmModel.swift */,
 			);
@@ -292,6 +295,7 @@
 				2ECDFAB32BB16055001DA8E3 /* 2_DeteilFilmViewController.swift in Sources */,
 				2EEC33442BC7E72E009AE0E1 /* mainCollectionViewDataSource.swift in Sources */,
 				2ECDFAA32BB15DAC001DA8E3 /* 1_MainViewController.swift in Sources */,
+				2E9A5DA52BF0E8310036D4AB /* NetworkModelWithoutAlamofire.swift in Sources */,
 				2ECDFA9F2BB15DAC001DA8E3 /* AppDelegate.swift in Sources */,
 				2ECDFAB52BB160A2001DA8E3 /* 3_FilmPicsViewController.swift in Sources */,
 				2EEC33402BC7C721009AE0E1 /* ModelForCollectionView.swift in Sources */,

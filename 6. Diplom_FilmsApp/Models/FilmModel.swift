@@ -14,8 +14,8 @@ import Foundation
 //      5. Отображение на экране
 
 class FilmModel {
-    let network = NetworkModel()
-
+    //let network = NetworkModel()
+    let network = NetworkModelWithoutAlamofire()
     let realm = RealmService.shared
     
     var filmsArray: [ModelForCollectionView] = []
