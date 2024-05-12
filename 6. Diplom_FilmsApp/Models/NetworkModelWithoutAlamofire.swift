@@ -12,7 +12,6 @@ enum ApiUrlChooser {
 }
 
 class NetworkModelWithoutAlamofire {
-    private let session = URLSession.shared
 
     // MARK: - Method for MainViewController
     func downloader<Model: Codable>(apiToUse: ApiUrlChooser, kinopoiskID: Int = 0, keyword: String = "", completion: @escaping (Model)->()) {
@@ -37,18 +36,15 @@ class NetworkModelWithoutAlamofire {
         var request = URLRequest(url: unwrApiUrl)
             request.httpMethod = "GET"
             request.setValue("b27890d4-28ce-4e20-8b65-c542733f350c", forHTTPHeaderField: "X-API-KEY")
-
-        DispatchQueue.main.async {
             
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                guard let unwrData = data, error == nil else { return }
-                
-                guard let unwrResult = try? JSONDecoder().decode(Model.self, from: unwrData) else { return }
-                
-                completion(unwrResult)
-            }
-            task.resume()
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let unwrData = data, error == nil else { return }
+            
+            guard let unwrResult = try? JSONDecoder().decode(Model.self, from: unwrData) else { return }
+            
+            completion(unwrResult)
         }
+        task.resume()
     }
     
     // MARK: - Method for DeteilFilmViewController
