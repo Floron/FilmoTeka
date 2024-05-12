@@ -8,15 +8,30 @@
 import Foundation
 
 enum ApiUrlChooser {
-    case defaultUrl, deteilFilm, imagesDownload, searchFilm
+    case defaultUrl, deteilFilm, imagesDownload, searchFilm, premiere, topTVshows, releases
 }
 
 class NetworkModelWithoutAlamofire {
+    
+    let session = URLSession.shared
+    
+    func getCurrentYearAndMonth() -> (year: String, month: String) {
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "yyyy"
+        let year = df.string(from: date)
+        df.dateFormat = "LLLL"
+        df.locale = Locale(identifier: "en")
+        let month = df.string(from: date).uppercased()
+        
+        return (year, month)
+    }
 
     // MARK: - Method for MainViewController
     func downloader<Model: Codable>(apiToUse: ApiUrlChooser, kinopoiskID: Int = 0, keyword: String = "", completion: @escaping (Model)->()) {
         var apiUrl = ""
-        
+        let currentYearAndMonth = getCurrentYearAndMonth()
+    
         switch apiToUse {
         case .defaultUrl:
             apiUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=TOP_250_MOVIES"
@@ -29,6 +44,12 @@ class NetworkModelWithoutAlamofire {
             let apiUrlToAllowCyrillic = url.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)
             guard let unwrApiUrl = apiUrlToAllowCyrillic else { return }
             apiUrl = unwrApiUrl
+        case .premiere:
+            apiUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/premieres?year=\(currentYearAndMonth.year)&month=\(currentYearAndMonth.month)"
+        case .topTVshows:
+            apiUrl = "https://kinopoiskapiunofficial.tech/api/v2.2/films/collections?type=TOP_250_TV_SHOWS"
+        case .releases:
+            apiUrl = "https://kinopoiskapiunofficial.tech/api/v2.1/films/releases?year=\(currentYearAndMonth.year)&month=\(currentYearAndMonth.month)"
         }
         
         guard let unwrApiUrl = URL(string: apiUrl) else { return }
@@ -37,7 +58,7 @@ class NetworkModelWithoutAlamofire {
             request.httpMethod = "GET"
             request.setValue("b27890d4-28ce-4e20-8b65-c542733f350c", forHTTPHeaderField: "X-API-KEY")
             
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { data, response, error in
             guard let unwrData = data, error == nil else { return }
             
             guard let unwrResult = try? JSONDecoder().decode(Model.self, from: unwrData) else { return }

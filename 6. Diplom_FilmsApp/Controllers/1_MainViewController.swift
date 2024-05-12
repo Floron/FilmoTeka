@@ -12,12 +12,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
     @IBOutlet weak var sortButton: UIButton!
+    @IBOutlet weak var collectionChooeserButton: UIButton!
     @IBOutlet weak var showLikedFilmsButton: UIButton!
     
     var filmModel = FilmModel()
     var searchController = UISearchController()
 
-    var isShowLikedFilmsButtonPressed = false
+    var isShowLikedFilmsButtonPressed = false {
+        didSet {
+            isShowLikedFilmsButtonPressed ? showLikedFilmsButton.setImage(UIImage(systemName: "heart.fill"), for: .normal) : showLikedFilmsButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,30 +35,14 @@ class MainViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
         
-        setupSortButton()
+        setupRightBarButtons()
         
-        filmModel.network.downloader(apiToUse: .defaultUrl) { (model: KinopoiskFilmsArrayModel) in
-            DispatchQueue.main.async {
-            for film in model.items {
-                let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.kinopoiskId)
-                
-                self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.kinopoiskId,
-                                                                        nameRu: film.nameRu,
-                                                                        ratingKinopoisk: film.ratingKinopoisk,
-                                                                        year: film.year,
-                                                                        posterUrlPreview: film.posterUrlPreview,
-                                                                        isLiked: isLikedFilm))
-            }
-            
-                print("Data downloaded")
-                self.mainCollectionView.reloadData()
-            }
-        }
+        update(sortMethod: "TOP_250_MOVIES")
         
         filmModel.realm.printRealmBDpath()
     }
-
-    func setupSortButton() {
+    
+    func setupRightBarButtons() {
         let menuClosure = {(action: UIAction) in
             if let discoverabilityTitle = action.discoverabilityTitle {
                 self.update(sortMethod: discoverabilityTitle)
@@ -70,7 +59,17 @@ class MainViewController: UIViewController {
             subMenu
         ])
         sortButton.showsMenuAsPrimaryAction = true
-        //sortButton.changesSelectionAsPrimaryAction = true
+        
+        let subsubMenu = UIMenu(options: .displayInline, preferredElementSize: .medium, children: [
+            UIAction(title: "Премьеры", discoverabilityTitle: "Premiers", handler: menuClosure),
+            UIAction(title: "Цифровые релизы", discoverabilityTitle: "Releases", handler: menuClosure)
+        ])
+        collectionChooeserButton.menu = UIMenu(title: "Показать:", preferredElementSize: .medium, children: [
+            UIAction(title: "TOP 250 Фильмов", discoverabilityTitle: "TOP_250_MOVIES", handler: menuClosure),
+            UIAction(title: "TOP 250 Сериалов", discoverabilityTitle: "TOP_250_TV_SHOWS", handler: menuClosure),
+            subsubMenu
+        ])
+        collectionChooeserButton.showsMenuAsPrimaryAction = true
     }
     
     func update(sortMethod: String) {
@@ -87,6 +86,98 @@ class MainViewController: UIViewController {
             case "yearUp":
                 filmModel.sorting(method: "year", isMore: true, whatToSort: isShowLikedFilmsButtonPressed)
                 print("Год. По возрастанию")
+            case "TOP_250_MOVIES":
+                isShowLikedFilmsButtonPressed = false
+            
+                print("Вывожу на экран TOP_250_MOVIES")
+                filmModel.filmsArray.removeAll()
+                filmModel.network.downloader(apiToUse: .defaultUrl) { (model: KinopoiskFilmsArrayModel) in
+                    DispatchQueue.main.async {
+                        for film in model.items {
+                            let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.kinopoiskId)
+                            
+                            self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.kinopoiskId,
+                                                                                    nameRu: film.nameRu,
+                                                                                    ratingKinopoisk: "\(film.ratingKinopoisk)",
+                                                                                    year: "\(film.year)",
+                                                                                    posterUrlPreview: film.posterUrlPreview,
+                                                                                    isLiked: isLikedFilm))
+                        }
+                        
+                        print("Data downloaded")
+                        self.mainCollectionView.reloadData()
+                    }
+                }
+            case "Premiers":
+                isShowLikedFilmsButtonPressed = false
+            
+                print("Вывожу на экран Premiers")
+                filmModel.filmsArray.removeAll()
+                filmModel.network.downloader(apiToUse: .premiere) { (model: KinopoiskPremiereFilms) in
+                    
+                    DispatchQueue.main.async {
+                        for film in model.items {
+                            let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.kinopoiskId)
+                            
+                            self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.kinopoiskId,
+                                                                                    nameRu: film.nameRu,
+                                                                                    ratingKinopoisk: film.premiereRu,
+                                                                                    year: "\(film.year)",
+                                                                                    posterUrlPreview: film.posterUrlPreview,
+                                                                                    isLiked: isLikedFilm))
+                        }
+                        
+                        print("Premiers downloaded")
+                        self.mainCollectionView.reloadData()
+                    }
+                    
+                }
+            case "TOP_250_TV_SHOWS":
+                isShowLikedFilmsButtonPressed = false
+  
+                print("Вывожу на экран TOP_250_TV_SHOWS")
+                filmModel.filmsArray.removeAll()
+                filmModel.network.downloader(apiToUse: .topTVshows) { (model: KinopoiskFilmsArrayModel) in
+                    DispatchQueue.main.async {
+                        for film in model.items {
+                            let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.kinopoiskId)
+                            
+                            self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.kinopoiskId,
+                                                                                    nameRu: film.nameRu,
+                                                                                    ratingKinopoisk: "\(film.ratingKinopoisk)",
+                                                                                    year: "\(film.year)",
+                                                                                    posterUrlPreview: film.posterUrlPreview,
+                                                                                    isLiked: isLikedFilm))
+                        }
+                        
+                        print("TopTVshows downloaded")
+                        self.mainCollectionView.reloadData()
+                    }
+                }
+            case "Releases":
+                isShowLikedFilmsButtonPressed = false
+            
+                print("Вывожу на экран Releases")
+                filmModel.filmsArray.removeAll()
+                filmModel.network.downloader(apiToUse: .releases) { (model: KinopoiskReleaseFilms) in
+                    
+                    DispatchQueue.main.async {
+                        for film in model.releases {
+                            let isLikedFilm = self.filmModel.isFilmInFavorite(id: film.filmId)
+                            
+                            self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.filmId,
+                                                                                    nameRu: film.nameRu,
+                                                                                    ratingKinopoisk: String(format: "%.01f",film.rating ?? 0.0),
+                                                                                    year: film.releaseDate,
+                                                                                    posterUrlPreview: film.posterUrlPreview,
+                                                                                    isLiked: isLikedFilm))
+                        }
+                    
+                        print("Premiers downloaded")
+                        self.mainCollectionView.reloadData()
+                    }
+                    
+                }
             default:
                 print("Error")
         }
@@ -97,13 +188,13 @@ class MainViewController: UIViewController {
     
     @IBAction func showLikedFilmsButtonPressed(_ sender: UIButton) {
         isShowLikedFilmsButtonPressed.toggle()
-        if isShowLikedFilmsButtonPressed {
-            print("Showed liked films")
-            showLikedFilmsButton.setImage(UIImage(systemName: "bolt.heart.fill"), for: .normal)
-        } else {
-            print("Showed all films")
-            showLikedFilmsButton.setImage(UIImage(systemName: "bolt.heart"), for: .normal)
-        }
+//        if isShowLikedFilmsButtonPressed {
+//            print("Showed liked films")
+//            showLikedFilmsButton.setImage(UIImage(systemName: "bolt.heart.fill"), for: .normal)
+//        } else {
+//            print("Showed all films")
+//            showLikedFilmsButton.setImage(UIImage(systemName: "bolt.heart"), for: .normal)
+//        }
  
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()
@@ -176,7 +267,6 @@ extension MainViewController: UISearchBarDelegate {
         view.endEditing(true)   // hide keyboard
         
         guard let searchText = searchBar.text else { return }
-        
        
         filmModel.network.downloader(apiToUse: .searchFilm, keyword: searchText) { (foundFilmsArray: KinopoiskSearchedFilm) in
             self.filmModel.filmsArray.removeAll()
@@ -187,8 +277,8 @@ extension MainViewController: UISearchBarDelegate {
 
                     self.filmModel.filmsArray.append(ModelForCollectionView(kinopoiskId: film.filmId,
                                                                             nameRu: film.nameRu,
-                                                                            ratingKinopoisk: Double(film.rating) ?? 0.0,
-                                                                            year: Int(film.year) ?? 0,
+                                                                            ratingKinopoisk: film.rating,
+                                                                            year: film.year,
                                                                             posterUrlPreview: film.posterUrlPreview,
                                                                             isLiked: isLikedFilm))
                 }

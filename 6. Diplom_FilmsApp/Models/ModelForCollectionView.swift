@@ -11,8 +11,8 @@ import RealmSwift
  class ModelForCollectionView: Object {
     @objc dynamic var kinopoiskId: Int = 0
     @objc dynamic var nameRu: String = ""
-    @objc dynamic var ratingKinopoisk: Double = 0.0
-    @objc dynamic var year: Int = 2000
+    @objc dynamic var ratingKinopoisk: String = ""
+    @objc dynamic var year: String = ""
     @objc dynamic var posterUrlPreview: String = ""
     @objc dynamic var isLiked: Bool = false
     
@@ -20,7 +20,7 @@ import RealmSwift
         return "kinopoiskId"
     }
     
-    convenience init(kinopoiskId: Int, nameRu: String, ratingKinopoisk: Double, year: Int, posterUrlPreview: String, isLiked: Bool) {
+    convenience init(kinopoiskId: Int, nameRu: String, ratingKinopoisk: String, year: String, posterUrlPreview: String, isLiked: Bool) {
         self.init()
         
         self.kinopoiskId = kinopoiskId

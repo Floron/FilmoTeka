@@ -11,7 +11,6 @@ import Foundation
 // I wanna use https://kinopoiskapiunofficial.tech/ api
 
 // MARK: - Model for MainViewController
-
 struct KinopoiskFilmsArrayModel: Codable {
     var total, totalPages: Int
     var items: [FilmItem]
@@ -83,4 +82,38 @@ struct SearchedFilms: Codable {
     var year: String
     var rating: String
     var posterUrlPreview: String
+}
+
+
+// MARK: - KinopoiskPremiereFilms
+struct KinopoiskPremiereFilms: Codable {
+    var total: Int
+    var items: [PremiereFilm]
+}
+
+// MARK: - Item
+struct PremiereFilm: Codable {
+    var kinopoiskId: Int
+    var nameRu: String
+    var year: Int
+    var posterUrlPreview: String
+    var duration: Int?
+    var premiereRu: String
+}
+
+
+// MARK: - KinopoiskReleaseFilms
+struct KinopoiskReleaseFilms: Codable {
+    var releases: [Release]
+    var page, total: Int
+}
+
+// MARK: - Release
+struct Release: Codable {
+    var filmId: Int
+    var nameRu: String
+    var year: Int
+    var posterUrlPreview: String
+    var rating: Double?
+    var releaseDate: String
 }

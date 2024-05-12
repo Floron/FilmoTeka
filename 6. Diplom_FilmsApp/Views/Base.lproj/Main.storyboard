@@ -136,25 +136,42 @@
                                 </connections>
                             </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" id="m0p-e8-Gj2">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="q6G-Uv-ZTz">
-                                <rect key="frame" x="341.33333333333331" y="6.6666666666666661" width="35.666666666666686" height="30.666666666666671"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" image="YES" selected="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <menu key="menu" id="4zH-ez-SDZ">
-                                    <children>
-                                        <command title="Item 1" id="1y6-dQ-9yZ"/>
-                                        <command title="Item 2" id="kVy-LI-ZXM"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" image="filemenu.and.cursorarrow" catalog="system"/>
-                            </button>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem id="m0p-e8-Gj2">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="q6G-Uv-ZTz">
+                                    <rect key="frame" x="341.33333333333337" y="6.6666666666666661" width="35.666666666666686" height="30.666666666666671"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" button="YES" image="YES" selected="YES"/>
+                                    </accessibility>
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <menu key="menu" id="4zH-ez-SDZ">
+                                        <children>
+                                            <command title="Item 1" id="1y6-dQ-9yZ"/>
+                                            <command title="Item 2" id="kVy-LI-ZXM"/>
+                                        </children>
+                                    </menu>
+                                    <state key="normal" image="filemenu.and.cursorarrow" catalog="system"/>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="QbB-iy-7x2">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="system" lineBreakMode="middleTruncation" id="OVm-z7-okV">
+                                    <rect key="frame" x="246.33333333333337" y="5" width="87" height="34.333333333333336"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <menu key="menu" title="Menu" id="pCi-bD-EP8">
+                                        <children>
+                                            <command title="Item 1" id="QSo-Dp-w6M"/>
+                                            <command title="Item 2" id="gzG-UM-33m"/>
+                                        </children>
+                                    </menu>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="folder" catalog="system"/>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="collectionChooeserButton" destination="OVm-z7-okV" id="HWZ-My-rSt"/>
                         <outlet property="mainCollectionView" destination="o1k-Rm-G76" id="uY8-A8-zl2"/>
                         <outlet property="showLikedFilmsButton" destination="q2E-yf-KtH" id="Iyb-Ph-MHe"/>
                         <outlet property="sortButton" destination="q6G-Uv-ZTz" id="0sp-cL-DGi"/>
@@ -558,6 +575,7 @@
     <resources>
         <image name="bolt.heart" catalog="system" width="128" height="107"/>
         <image name="filemenu.and.cursorarrow" catalog="system" width="128" height="100"/>
+        <image name="folder" catalog="system" width="128" height="96"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="image14" width="409" height="620"/>
         <systemColor name="labelColor">
