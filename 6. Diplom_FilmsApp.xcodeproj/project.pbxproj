@@ -11,6 +11,9 @@
 		2E83F5D42BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83F5D32BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift */; };
 		2E8C41442BBAF89000AEEB02 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */; };
 		2E9A5DA52BF0E8310036D4AB /* NetworkModelWithoutAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9A5DA42BF0E8310036D4AB /* NetworkModelWithoutAlamofire.swift */; };
+		2E9D12012C0B6C9100B8AADB /* FilmsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D12002C0B6C9100B8AADB /* FilmsAppTests.swift */; };
+		2E9D120E2C0B6CB500B8AADB /* FilmsAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D120D2C0B6CB500B8AADB /* FilmsAppUITests.swift */; };
+		2E9D12102C0B6CB500B8AADB /* FilmsAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9D120F2C0B6CB500B8AADB /* FilmsAppUITestsLaunchTests.swift */; };
 		2EA70EEB2BD3BCFC003AF9F5 /* ModelRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70EEA2BD3BCFC003AF9F5 /* ModelRealm.swift */; };
 		2EA70EED2BDECAE0003AF9F5 /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA70EEC2BDECAE0003AF9F5 /* FilmModel.swift */; };
 		2ECDFA9F2BB15DAC001DA8E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECDFA9E2BB15DAC001DA8E3 /* AppDelegate.swift */; };
@@ -32,11 +35,33 @@
 		8DDD8B452BD096E6EBAEDCF9 /* Pods_6__Diplom_FilmsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E31D87ED1FAFB84743CEE2 /* Pods_6__Diplom_FilmsApp.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2E9D12022C0B6C9100B8AADB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ECDFA932BB15DAC001DA8E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2ECDFA9A2BB15DAC001DA8E3;
+			remoteInfo = "6. Diplom_FilmsApp";
+		};
+		2E9D12112C0B6CB500B8AADB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ECDFA932BB15DAC001DA8E3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2ECDFA9A2BB15DAC001DA8E3;
+			remoteInfo = "6. Diplom_FilmsApp";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		2E83F5D12BBB49D10023D9C3 /* RoundingTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundingTransition.swift; sourceTree = "<group>"; };
 		2E83F5D32BC195740023D9C3 /* 02_FilmPicsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 02_FilmPicsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2E8C41432BBAF89000AEEB02 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		2E9A5DA42BF0E8310036D4AB /* NetworkModelWithoutAlamofire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelWithoutAlamofire.swift; sourceTree = "<group>"; };
+		2E9D11FE2C0B6C9100B8AADB /* FilmsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FilmsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E9D12002C0B6C9100B8AADB /* FilmsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsAppTests.swift; sourceTree = "<group>"; };
+		2E9D120B2C0B6CB500B8AADB /* FilmsAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FilmsAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E9D120D2C0B6CB500B8AADB /* FilmsAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsAppUITests.swift; sourceTree = "<group>"; };
+		2E9D120F2C0B6CB500B8AADB /* FilmsAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2EA70EEA2BD3BCFC003AF9F5 /* ModelRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRealm.swift; sourceTree = "<group>"; };
 		2EA70EEC2BDECAE0003AF9F5 /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
 		2ECDFA9B2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "6. Diplom_FilmsApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +89,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2E9D11FB2C0B6C9100B8AADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E9D12082C0B6CB500B8AADB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ECDFA982BB15DAC001DA8E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,10 +114,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E9D11FF2C0B6C9100B8AADB /* FilmsAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				2E9D12002C0B6C9100B8AADB /* FilmsAppTests.swift */,
+			);
+			path = FilmsAppTests;
+			sourceTree = "<group>";
+		};
+		2E9D120C2C0B6CB500B8AADB /* FilmsAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2E9D120D2C0B6CB500B8AADB /* FilmsAppUITests.swift */,
+				2E9D120F2C0B6CB500B8AADB /* FilmsAppUITestsLaunchTests.swift */,
+			);
+			path = FilmsAppUITests;
+			sourceTree = "<group>";
+		};
 		2ECDFA922BB15DAC001DA8E3 = {
 			isa = PBXGroup;
 			children = (
 				2ECDFA9D2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp */,
+				2E9D11FF2C0B6C9100B8AADB /* FilmsAppTests */,
+				2E9D120C2C0B6CB500B8AADB /* FilmsAppUITests */,
 				2ECDFA9C2BB15DAC001DA8E3 /* Products */,
 				D7E6C58A43F838CEF1165394 /* Pods */,
 				5891797FF9273159DB4E86CB /* Frameworks */,
@@ -89,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				2ECDFA9B2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp.app */,
+				2E9D11FE2C0B6C9100B8AADB /* FilmsAppTests.xctest */,
+				2E9D120B2C0B6CB500B8AADB /* FilmsAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,6 +235,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2E9D11FD2C0B6C9100B8AADB /* FilmsAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E9D12062C0B6C9100B8AADB /* Build configuration list for PBXNativeTarget "FilmsAppTests" */;
+			buildPhases = (
+				2E9D11FA2C0B6C9100B8AADB /* Sources */,
+				2E9D11FB2C0B6C9100B8AADB /* Frameworks */,
+				2E9D11FC2C0B6C9100B8AADB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E9D12032C0B6C9100B8AADB /* PBXTargetDependency */,
+			);
+			name = FilmsAppTests;
+			productName = FilmsAppTests;
+			productReference = 2E9D11FE2C0B6C9100B8AADB /* FilmsAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2E9D120A2C0B6CB500B8AADB /* FilmsAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E9D12132C0B6CB500B8AADB /* Build configuration list for PBXNativeTarget "FilmsAppUITests" */;
+			buildPhases = (
+				2E9D12072C0B6CB500B8AADB /* Sources */,
+				2E9D12082C0B6CB500B8AADB /* Frameworks */,
+				2E9D12092C0B6CB500B8AADB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E9D12122C0B6CB500B8AADB /* PBXTargetDependency */,
+			);
+			name = FilmsAppUITests;
+			productName = FilmsAppUITests;
+			productReference = 2E9D120B2C0B6CB500B8AADB /* FilmsAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		2ECDFA9A2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2ECDFAAF2BB15DAE001DA8E3 /* Build configuration list for PBXNativeTarget "6. Diplom_FilmsApp" */;
@@ -201,9 +297,17 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1430;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
+					2E9D11FD2C0B6C9100B8AADB = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 2ECDFA9A2BB15DAC001DA8E3;
+					};
+					2E9D120A2C0B6CB500B8AADB = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 2ECDFA9A2BB15DAC001DA8E3;
+					};
 					2ECDFA9A2BB15DAC001DA8E3 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -224,11 +328,27 @@
 			projectRoot = "";
 			targets = (
 				2ECDFA9A2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp */,
+				2E9D11FD2C0B6C9100B8AADB /* FilmsAppTests */,
+				2E9D120A2C0B6CB500B8AADB /* FilmsAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2E9D11FC2C0B6C9100B8AADB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E9D12092C0B6CB500B8AADB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ECDFA992BB15DAC001DA8E3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +405,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2E9D11FA2C0B6C9100B8AADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E9D12012C0B6C9100B8AADB /* FilmsAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E9D12072C0B6CB500B8AADB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E9D12102C0B6CB500B8AADB /* FilmsAppUITestsLaunchTests.swift in Sources */,
+				2E9D120E2C0B6CB500B8AADB /* FilmsAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2ECDFA972BB15DAC001DA8E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -311,6 +448,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2E9D12032C0B6C9100B8AADB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2ECDFA9A2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp */;
+			targetProxy = 2E9D12022C0B6C9100B8AADB /* PBXContainerItemProxy */;
+		};
+		2E9D12122C0B6CB500B8AADB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2ECDFA9A2BB15DAC001DA8E3 /* 6. Diplom_FilmsApp */;
+			targetProxy = 2E9D12112C0B6CB500B8AADB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2ECDFAA42BB15DAC001DA8E3 /* Main.storyboard */ = {
@@ -341,6 +491,110 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2E9D12042C0B6C9100B8AADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A93E9U8WG3;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = floron.FilmsAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/6. Diplom_FilmsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/6. Diplom_FilmsApp";
+			};
+			name = Debug;
+		};
+		2E9D12052C0B6C9100B8AADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A93E9U8WG3;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = floron.FilmsAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/6. Diplom_FilmsApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/6. Diplom_FilmsApp";
+			};
+			name = Release;
+		};
+		2E9D12142C0B6CB500B8AADB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A93E9U8WG3;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = floron.FilmsAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "6. Diplom_FilmsApp";
+			};
+			name = Debug;
+		};
+		2E9D12152C0B6CB500B8AADB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A93E9U8WG3;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = floron.FilmsAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "6. Diplom_FilmsApp";
+			};
+			name = Release;
+		};
 		2ECDFAAD2BB15DAE001DA8E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -393,7 +647,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -449,7 +704,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -475,6 +731,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -508,6 +765,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -528,6 +786,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E9D12062C0B6C9100B8AADB /* Build configuration list for PBXNativeTarget "FilmsAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E9D12042C0B6C9100B8AADB /* Debug */,
+				2E9D12052C0B6C9100B8AADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2E9D12132C0B6CB500B8AADB /* Build configuration list for PBXNativeTarget "FilmsAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E9D12142C0B6CB500B8AADB /* Debug */,
+				2E9D12152C0B6CB500B8AADB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2ECDFA962BB15DAC001DA8E3 /* Build configuration list for PBXProject "6. Diplom_FilmsApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

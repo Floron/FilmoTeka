@@ -214,6 +214,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         let item = isShowLikedFilmsButtonPressed ? filmModel.realm.likedFilmsArray[indexPath.row] : filmModel.filmsArray[indexPath.row]
         cell.film = item
+        cell.filmTitleLabel.accessibilityIdentifier = "\(indexPath.row)"
 
         cell.yourobj = {
             //item.isLiked.toggle()
