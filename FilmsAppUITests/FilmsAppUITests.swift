@@ -9,6 +9,29 @@ import XCTest
 
 final class FilmsAppUITests: XCTestCase {
 
+    func testCollectionView() throws {
+        // UI tests must launch the application that they test.
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.swipeUp()
+        app.swipeDown()
+        
+        let collectionView = app.collectionViews["MyCollectionView"]
+        let cells = collectionView.cells.matching(identifier: "MyCollectionViewCell")
+        
+        let cellLabelText = cells.staticTexts.element(boundBy: 3).label
+        //XCTAssertEqual(cellLabelText, "Форест Гамп")
+        
+        
+        // Нажимаем на ячейку 3 элемента массива (нумерация начинается с 0)
+        cells.staticTexts.element(boundBy: 3).tap()
+        XCTAssertEqual(app.staticTexts["MyDeteilViewFilmTitle"].label, cellLabelText)
+        
+        // Данные успешно были переданы на второй экран, тайтлы совпадают
+        
+    }
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
